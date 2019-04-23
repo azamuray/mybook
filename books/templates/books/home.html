@@ -1,17 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-	{% if title %}
-		<title>{{ title }}</title>
-	{% else %}
-		<title>Мои книги</title>
-	{% endif %}
-</head>
-<body>
-	{% for book in books %}
-		<p>Название: {{ book.title }}</p>
-		<p>Автор: {{ book.author }}</p>
-		<p>{{ book.image }}</p>
-	{% endfor %}
-</body>
-</html>
+{% extends 'books/base.html' %}
+{% block content %}
+	<div class="container">
+		<nav aria-label="breadcrumb">
+		  <ol class="breadcrumb">
+		    <li class="breadcrumb-item active" aria-current="page">Мои книги</li>
+		  </ol>
+		</nav>
+		<div class="card-deck">
+		{% for book in books %}
+		  <div class="card">
+		    <img class="card-img-top" src=".../100px200/" alt="Нет обложки">
+		    <div class="card-body">
+		      <h5 class="card-title">{{ book.title }}</h5>
+		      <p class="card-text">{{ book.author }}</p>
+		    </div>
+		  </div>
+		{% endfor %}
+		</div>
+	</div>
+
+{% endblock %}
