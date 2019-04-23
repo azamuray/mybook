@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% if title %}
+		<title>{{ title }}</title>
+	{% else %}
+		<title>Мои книги</title>
+	{% endif %}
+</head>
+<body>
+	{% for book in books %}
+		<p>Название: {{ book.title }}</p>
+		<p>Автор: {{ book.author }}</p>
+		<p>{{ book.image }}</p>
+	{% endfor %}
+</body>
+</html>
